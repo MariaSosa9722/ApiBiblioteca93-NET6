@@ -41,13 +41,9 @@ namespace WebApi83.Services.Services
         {
             try
             {
-                //Autor autor = new Autor();
-
+                
                 Autor autor = (await _context.Database.GetDbConnection().QueryAsync<Autor>("SpCrearAutor", new { i.Nombre, i.Nacionalidad }, commandType: CommandType.StoredProcedure)).FirstOrDefault();
 
-
-               
-                
                 return new Response<Autor>(autor);
 
 
